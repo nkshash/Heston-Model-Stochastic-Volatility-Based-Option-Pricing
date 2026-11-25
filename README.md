@@ -96,7 +96,7 @@ d_1=\frac{\ln(S/K)+(r-q+\frac{1}{2}\sigma^2)T}{\sigma\sqrt{T}},
 d_2=d_1-\sigma\sqrt{T}.
 \]$
 
-Using \(N(x)\) for the standard normal cumulative distribution function:
+Using $(N(x)\)$ for the standard normal cumulative distribution function:
 
 $[
 C=S e^{-qT}N(d_1)-K e^{-rT}N(d_2),
@@ -115,7 +115,7 @@ P=K e^{-rT}N(-d_2)-S e^{-qT}N(-d_1).
 | Call price as volatility `sigma` increases | Increases |
 | Put price as volatility `sigma` increases | Increases |
 | Option time value as expiration approaches | Decreases toward zero; at expiry, only intrinsic payoff remains |
-| Put–call parity | Holds: \(C-P=S e^{-qT}-K e^{-rT}\) |
+| Put–call parity | Holds: $(C-P=S e^{-qT}-K e^{-rT}\)$ |
 
 
 ### Figures
