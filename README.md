@@ -106,3 +106,20 @@ $[
 P=K e^{-rT}N(-d_2)-S e^{-qT}N(-d_1).
 \]$
 
+
+### Option Premium relationships
+| Test | Result |
+|---|---|
+| Call price as `S` increases | Increases |
+| Put price as `S` increases | Decreases |
+| Call price as volatility `sigma` increases | Increases |
+| Put price as volatility `sigma` increases | Increases |
+| Option time value as expiration approaches | Decreases toward zero; at expiry, only intrinsic payoff remains |
+| Put–call parity | Holds: \(C-P=S e^{-qT}-K e^{-rT}\) |
+
+
+### Figures
+
+![Black–Scholes call and put prices premium values with change in the stock price](results/stockprice.png)
+![Black–Scholes call and put prices premium values with change in the variance](results/sigma.png)
+![Black–Scholes call and put prices premium values as expiration approaches](results/time.png)
