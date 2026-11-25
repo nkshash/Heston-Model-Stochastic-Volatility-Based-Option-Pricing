@@ -31,6 +31,6 @@ W_{t_k}=\sum_{j=1}^{k}\Delta W_j,\qquad W_0=0.
 
 ### Figure: ten simulated paths
 
-![Ten simulated standard Brownian motion paths](results/brownian_paths.png)
+![Ten simulated standard Brownian motion paths](results/weiner_brownian.png)
 
 Each line is one possible realization, not a prediction. The paths share the same starting value of zero, while each subsequent increment is randomly drawn with variance equal to its time-step length.
