@@ -50,6 +50,6 @@ P=K e^{-rT}N(-d_2)-S e^{-qT}N(-d_1).
 
 ### Figures
 
-![Black–Scholes call and put prices premium values with change in the stock price](results/stockprice.png)
-![Black–Scholes call and put prices premium values with change in the variance](results/sigma.png)
-![Black–Scholes call and put prices premium values as expiration approaches](results/time.png)
+![Black–Scholes call and put prices premium values with change in the stock price](./results/stockprice.png)
+![Black–Scholes call and put prices premium values with change in the variance](./results/sigma.png)
+![Black–Scholes call and put prices premium values as expiration approaches](./results/time.png)
