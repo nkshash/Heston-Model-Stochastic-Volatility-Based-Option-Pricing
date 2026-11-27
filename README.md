@@ -1,125 +1,13 @@
-# Heston-Model-Stochastic-Volatility-Based-Option-Pricing
+# NIFTY Option Pricing: Black–Scholes and Heston
 
-## Brownian Motion (Wiener Process)
+## Project description
 
-Brownian motion is a continuous-time random process used to model accumulated random movement. In finance, it is often used as the random component of stock-price models such as geometric Brownian motion.
+This project studies European option pricing, starting with the mathematical foundations of stochastic modeling, then using Black–Scholes as a baseline and Heston as a stochastic-volatility model. The goal is to apply and compare these models using NIFTY option data.
 
-### Key properties
+## New to these topics?
 
-For standard Brownian motion (W_t):
+Start with the theory notes before exploring the code and results:
 
-- It starts at zero: (W_0 = 0).
-- Its increments over non-overlapping time intervals are independent.
-- Over an interval of length $(\Delta t\)$, an increment is normally distributed:
-
-  $[
-  W_{t+\Delta t}-W_t \sim N(0,\Delta t).
-  \]$
-
-This is simulated using a standard normal random variable $(Z\sim N(0,1)\)$:
-
-$[
-\Delta W = \sqrt{\Delta t}\,Z.
-\]$
-
-Adding the increments gives the path:
-
-$[
-W_{t_k}=\sum_{j=1}^{k}\Delta W_j,\qquad W_0=0.
-\]$
-
-
-### Figure: ten simulated paths
-
-![Ten simulated standard Brownian motion paths](results/weiner_brownian.png)
-
-Each line is one possible realization, not a prediction. The paths share the same starting value of zero, while each subsequent increment is randomly drawn with variance equal to its time-step length.
-
-## Geometric Brownian Motion (GBM)
-
-Geometric Brownian motion is a continuous-time model for a quantity that changes proportionally to its current level. It is widely used as a simple model for stock prices because it produces positive prices while allowing random movement.
-
-### Model
-
-The GBM stochastic differential equation is
-
-$[
-dS_t = \mu S_t\,dt + \sigma S_t\,dW_t,
-\]$
-
-where:
-
-- $(S_t\)$ is the price at time \(t\).
-- $(\mu\)$ is the annualized drift parameter.
-- $(\sigma\)$ is the annualized volatility.
-- $(W_t\)$ is standard Brownian motion.
-
-For a time step $(\Delta t\)$, the exact GBM update is
-
-$[
-S_{t+\Delta t}=S_t\exp\left[\left(\mu-\frac{1}{2}\sigma^2\right)\Delta t + \sigma\sqrt{\Delta t}\,Z\right],
-\qquad Z\sim N(0,1).
-\]$
-
-The $(-\frac{1}{2}\sigma^2\)$ term appears because the simulation updates the logarithm of price. The exponential update keeps simulated prices positive.
-
-
-![Ten simulated geometric Brownian motion price paths](results/GBM.png)
-
-Each line is one simulated scenario under the stated assumptions. These paths illustrate the model’s possible outcomes; they are not forecasts of an actual asset price.
-
-## Black–Scholes model
-
-The Black–Scholes model is a mathematical method for estimating the theoretical price of a European call or put option. It takes the current underlying price, strike price, time remaining, risk-free interest rate, volatility, and dividend yield as inputs. In simple terms, it estimates the value today of the possible option payoff at expiration, accounting for uncertainty and the time value of money.
-
-The model assumes a particular pattern of price uncertainty and is a pricing framework, not a guarantee of the market price or a prediction of where the underlying will go. This project calculates call and put values and plots how they change as the underlying price or time to expiration changes.
-
-
-## Parameters
-
-| Parameter | Meaning |
-|---|---|
-| `S` | Current price of the underlying asset |
-| `K` | Option strike (exercise) price |
-| `T` | Time to expiration, measured in years |
-| `r` | Annualized risk-free interest rate, as a decimal |
-| `sigma` | Annualized volatility, as a decimal |
-| `q` | Annualized continuous dividend yield, as a decimal; defaults to 0 |
-
-For example, `sigma=0.20` represents 20% annualized volatility, and `T=0.5` represents six months to expiry.
-
-## Formulas
-
-$[
-d_1=\frac{\ln(S/K)+(r-q+\frac{1}{2}\sigma^2)T}{\sigma\sqrt{T}},
-\qquad
-d_2=d_1-\sigma\sqrt{T}.
-\]$
-
-Using $(N(x)\)$ for the standard normal cumulative distribution function:
-
-$[
-C=S e^{-qT}N(d_1)-K e^{-rT}N(d_2),
-\]$
-
-$[
-P=K e^{-rT}N(-d_2)-S e^{-qT}N(-d_1).
-\]$
-
-
-### Option Premium relationships
-| Test | Result |
-|---|---|
-| Call price as `S` increases | Increases |
-| Put price as `S` increases | Decreases |
-| Call price as volatility `sigma` increases | Increases |
-| Put price as volatility `sigma` increases | Increases |
-| Option time value as expiration approaches | Decreases toward zero; at expiry, only intrinsic payoff remains |
-| Put–call parity | Holds: $(C-P=S e^{-qT}-K e^{-rT}\)$ |
-
-
-### Figures
-
-![Black–Scholes call and put prices premium values with change in the stock price](results/stockprice.png)
-![Black–Scholes call and put prices premium values with change in the variance](results/sigma.png)
-![Black–Scholes call and put prices premium values as expiration approaches](results/time.png)
+- [Brownian Motion](docs/Brownian%20Motion.md) — Introduction to Brownian motion and its role in financial models.
+- [Geometric Brownian Motion](docs/Geometric%20Brownian%20Motion.md) — How drift and volatility model asset-price movements.
+- [Black–Scholes Model](docs/Black%E2%80%93Scholes%20model.md) — European option pricing theory, formulas, and assumptions.
