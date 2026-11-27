@@ -27,6 +27,6 @@ S_{t+\Delta t}=S_t\exp\left[\left(\mu-\frac{1}{2}\sigma^2\right)\Delta t + \sigm
 The $(-\frac{1}{2}\sigma^2\)$ term appears because the simulation updates the logarithm of price. The exponential update keeps simulated prices positive.
 
 
-![Ten simulated geometric Brownian motion price paths](results/GBM.png)
+![Ten simulated geometric Brownian motion price paths](../results/GBM.png)
 
 Each line is one simulated scenario under the stated assumptions. These paths illustrate the model’s possible outcomes; they are not forecasts of an actual asset price.
